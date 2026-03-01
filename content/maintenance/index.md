@@ -132,7 +132,7 @@ This guide covers maintenance for our two flagship products:
 | **Loud noise** | Normal mechanics | Contact support if excessive |
 | **Bluetooth issues** | Signal interference | Move away from other devices |
 
-**Still having issues?** [Contact Breo Support](https://us.breo.com/)
+**Still having issues?** [Contact Breo Support](https://us.breo.com/?ref=ZIKELE)
 {{< /box >}}
 
 ---
@@ -365,7 +365,7 @@ This guide covers maintenance for our two flagship products:
 4. **Troubleshooting steps** already tried
 
 **Contact Options:**
-- 🌐 [Breo Support Website](https://us.breo.com/)
+- 🌐 [Breo Support Website](https://us.breo.com/?ref=ZIKELE)
 - 📧 Email support (check website)
 - 📱 Phone support (check website)
 {{< /box >}}
@@ -456,7 +456,7 @@ Get both for comprehensive head health management
 - [Usage Tips Guide](/posts/usage-tips-head-scalp-massagers/)
 - [FAQ Page](/faq/)
 - [User Success Stories](/cases/)
-- [Breo Official Support](https://us.breo.com/)
+- [Breo Official Support](https://us.breo.com/?ref=ZIKELE)
 
 **Remember:** Proper maintenance extends device life and ensures optimal performance. Follow this guide for years of reliable service!
 {{< /box >}}

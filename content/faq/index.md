@@ -319,7 +319,7 @@ The Scalp3 Trilogy has a **"Nutrient Import Mode"** specifically designed for th
 If you have additional questions not covered here:
 
 - 📧 Contact us through the [About page](/about/)
-- 🌐 Visit [Breo's official support](https://us.breo.com/)
+- 🌐 Visit [Breo's official support](https://us.breo.com/?ref=ZIKELE)
 - 📱 Check your product's user manual
 
 **Ready to start your journey to better head health?**
