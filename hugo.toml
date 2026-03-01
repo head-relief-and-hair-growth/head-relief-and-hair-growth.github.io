@@ -114,7 +114,7 @@ buildExpired = false
   widgets = ["search", "recent", "categories", "taglist", "social"]
 
 [Params.widgets]
-  recent_num = 5
+  recent_num = 6
   tags_counter = true
   categories_counter = true
 

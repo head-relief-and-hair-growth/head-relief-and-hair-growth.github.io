@@ -36,12 +36,18 @@ Discover how [Breo](https://us.breo.com/?ref=ZIKELE) massagers can transform you
 
 ## Why Choose [Breo](https://us.breo.com/?ref=ZIKELE) Massagers?
 
-![Breo Logo](/images/brea_logo.png "Breo - Premium Wellness Massagers")
+<div style="text-align: center;">
+  <a href="https://us.breo.com/?ref=ZIKELE" target="_blank" rel="noopener noreferrer">
+    <img src="/images/brea_logo.png" alt="Breo Logo" title="Breo - Premium Wellness Massagers" style="width: 30%;">
+  </a>
+</div>
+<br>
+<br>
 
 ### Headache & Migraine Relief
 [Breo](https://us.breo.com/?ref=ZIKELE) massagers are designed with advanced technology to target pressure points, reduce muscle tension, and provide soothing relief from headaches and migraines. The combination of kneading massage, heat therapy, and air pressure creates a spa-like experience that helps alleviate pain and discomfort.
 
-![Massage for Headache Relief](/images/massage-for-headache.jpg "Professional headache relief through massage therapy")
+<img src="/images/headache.webp" alt="Massage for Headache Relief" title="Professional headache relief through massage therapy" style="width: 100%;">
 
 ### Hair Growth Promotion
 By stimulating blood circulation to the scalp, [Breo](https://us.breo.com/?ref=ZIKELE) massagers help deliver essential nutrients to hair follicles, promoting healthier hair growth. Regular use can improve scalp health, reduce hair loss, and enhance overall hair quality.

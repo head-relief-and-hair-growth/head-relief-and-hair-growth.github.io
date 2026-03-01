@@ -10,7 +10,13 @@ authorbox: false
 
 ## About This Site
 
-![Breo Logo](/images/brea_logo.png "Breo - Premium Wellness Massagers")
+<div style="text-align: center;">
+  <a href="https://us.breo.com/?ref=ZIKELE" target="_blank" rel="noopener noreferrer">
+    <img src="/images/brea_logo.png" alt="Breo Logo" title="Breo - Premium Wellness Massagers" style="width: 30%;">
+  </a>
+</div>
+<br>
+<br>
 
 Welcome to **Head Relief & Hair Growth: The [Breo](https://us.breo.com/?ref=ZIKELE) Massager Guide**! This is a specialized platform dedicated to providing expert reviews, scientific insights, and practical guidance on [Breo](https://us.breo.com/?ref=ZIKELE) massagers for headache relief, migraine management, and hair growth promotion.
 
