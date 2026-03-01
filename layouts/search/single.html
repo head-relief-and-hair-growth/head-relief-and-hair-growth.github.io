@@ -1,0 +1,195 @@
+{{ define "main" }}
+<div class="search-page">
+	<h1 class="search-title">{{ .Title }}</h1>
+	{{ .Content }}
+	
+	<div class="search-container">
+		<input type="text" id="search-input" class="search-input" placeholder="Enter keywords to search...">
+		<button id="search-button" class="search-button">Search</button>
+	</div>
+	
+	<div id="search-results" class="search-results"></div>
+</div>
+
+<style>
+.search-page {
+	padding: 20px 0;
+}
+.search-title {
+	margin-bottom: 30px;
+	padding-bottom: 15px;
+	border-bottom: 2px solid #e22d30;
+}
+.search-container {
+	display: flex;
+	gap: 10px;
+	margin-bottom: 30px;
+}
+.search-input {
+	flex: 1;
+	padding: 12px 15px;
+	font-size: 16px;
+	border: 2px solid #ddd;
+	border-radius: 4px;
+	outline: none;
+	transition: border-color 0.3s;
+}
+.search-input:focus {
+	border-color: #e22d30;
+}
+.search-button {
+	padding: 12px 25px;
+	background: #e22d30;
+	color: #fff;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	font-size: 16px;
+	transition: background 0.3s;
+}
+.search-button:hover {
+	background: #c42528;
+}
+.search-results {
+	margin-top: 20px;
+}
+.search-result-item {
+	padding: 20px;
+	margin-bottom: 15px;
+	background: #f8f8f8;
+	border-radius: 4px;
+	border-left: 3px solid #e22d30;
+}
+.search-result-title {
+	margin: 0 0 10px 0;
+	font-size: 1.2em;
+}
+.search-result-title a {
+	color: #333;
+	text-decoration: none;
+}
+.search-result-title a:hover {
+	color: #e22d30;
+}
+.search-result-meta {
+	font-size: 0.85em;
+	color: #888;
+	margin-bottom: 10px;
+}
+.search-result-summary {
+	color: #555;
+	line-height: 1.6;
+}
+.search-highlight {
+	background: #fff3cd;
+	padding: 0 2px;
+}
+.no-results {
+	text-align: center;
+	padding: 40px;
+	color: #888;
+}
+@media (max-width: 768px) {
+	.search-container {
+		flex-direction: column;
+	}
+	.search-button {
+		width: 100%;
+	}
+}
+</style>
+
+<script>
+// Load search index
+let searchIndex = [];
+fetch('/index.json')
+	.then(response => response.json())
+	.then(data => {
+		searchIndex = data;
+	})
+	.catch(error => console.error('Error loading search index:', error));
+
+function search(query) {
+	if (!query.trim() || searchIndex.length === 0) {
+		return [];
+	}
+	
+	const results = [];
+	const lowerQuery = query.toLowerCase();
+	
+	searchIndex.forEach(page => {
+		const title = (page.title || '').toLowerCase();
+		const content = (page.content || '').toLowerCase();
+		const description = (page.description || '').toLowerCase();
+		const tags = (page.tags || []).join(' ').toLowerCase();
+		const categories = (page.categories || []).join(' ').toLowerCase();
+		
+		if (title.includes(lowerQuery) || 
+		    content.includes(lowerQuery) || 
+		    description.includes(lowerQuery) ||
+		    tags.includes(lowerQuery) ||
+		    categories.includes(lowerQuery)) {
+			results.push({
+				title: page.title,
+				url: page.url,
+				date: page.date,
+				description: page.description || '',
+				content: page.content ? page.content.substring(0, 200) + '...' : ''
+			});
+		}
+	});
+	
+	return results;
+}
+
+function displayResults(results, query) {
+	const container = document.getElementById('search-results');
+	
+	if (results.length === 0) {
+		container.innerHTML = '<div class="no-results">No results found for "' + query + '"</div>';
+		return;
+	}
+	
+	let html = '';
+	results.forEach(result => {
+		const date = new Date(result.date).toLocaleDateString('en-US');
+
+		html += `
+			<div class="search-result-item">
+				<h3 class="search-result-title">
+					<a href="${result.url}">${highlightText(result.title, query)}</a>
+				</h3>
+				<div class="search-result-meta">发布于 ${date}</div>
+				<div class="search-result-summary">${highlightText(result.description || result.content, query)}</div>
+			</div>
+		`;
+	});
+	
+	container.innerHTML = html;
+}
+
+function highlightText(text, query) {
+	if (!text) return '';
+	const regex = new RegExp(`(${escapeRegex(query)})`, 'gi');
+	return text.replace(regex, '<span class="search-highlight">$1</span>');
+}
+
+function escapeRegex(string) {
+	return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+document.getElementById('search-button').addEventListener('click', function() {
+	const query = document.getElementById('search-input').value;
+	const results = search(query);
+	displayResults(results, query);
+});
+
+document.getElementById('search-input').addEventListener('keypress', function(e) {
+	if (e.key === 'Enter') {
+		const query = this.value;
+		const results = search(query);
+		displayResults(results, query);
+	}
+});
+</script>
+{{ end }}

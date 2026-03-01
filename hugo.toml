@@ -1,0 +1,155 @@
+baseURL = 'https://test-blog.github.io/'
+languageCode = 'en-us'
+defaultContentLanguage = 'en-us'
+title = 'Head Relief & Hair Growth: The Breo Massager Guide'
+theme = 'mainroad'
+paginate = 10
+summaryLength = 30
+enableRobotsTXT = true
+buildDrafts = false
+buildFuture = false
+buildExpired = false
+
+[minify]
+  minifyOutput = true
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+  section = ["HTML", "RSS"]
+  taxonomy = ["HTML", "RSS"]
+  term = ["HTML", "RSS"]
+
+[sitemap]
+  changefreq = "weekly"
+  filename = "sitemap.xml"
+  priority = 0.5
+
+[languages]
+  [languages.en-us]
+    languageName = "English"
+    weight = 1
+
+[menu]
+  [[menu.main]]
+    identifier = "home"
+    name = "Home"
+    url = "/"
+    weight = 1
+  [[menu.main]]
+    identifier = "posts"
+    name = "Articles"
+    url = "/posts/"
+    weight = 2
+  [[menu.main]]
+    identifier = "faq"
+    name = "FAQ"
+    url = "/faq/"
+    weight = 3
+  [[menu.main]]
+    identifier = "cases"
+    name = "Success Stories"
+    url = "/cases/"
+    weight = 4
+  [[menu.main]]
+    identifier = "maintenance"
+    name = "Maintenance"
+    url = "/maintenance/"
+    weight = 5
+  [[menu.main]]
+    identifier = "categories"
+    name = "Categories"
+    url = "/categories/"
+    weight = 6
+  [[menu.main]]
+    identifier = "tags"
+    name = "Tags"
+    url = "/tags/"
+    weight = 7
+  [[menu.main]]
+    identifier = "archives"
+    name = "Archives"
+    url = "/archives/"
+    weight = 8
+  [[menu.main]]
+    identifier = "about"
+    name = "About"
+    url = "/about/"
+    weight = 9
+  [[menu.main]]
+    identifier = "search"
+    name = "Search"
+    url = "/search/"
+    weight = 10
+
+[Author]
+  name = "Head Relief & Hair Growth Guide"
+  bio = "Dedicated to providing expert reviews and guidance on Breo massagers for headache relief, migraine management, and hair growth promotion"
+  avatar = "img/avatar.png"
+
+[Params]
+  description = "Expert reviews and guides on Breo massagers for headache relief, migraine management, and hair growth promotion - your comprehensive resource for head wellness"
+  keywords = ["headache relief", "migraine relief", "hair growth", "Breo massager", "scalp massager", "head massager", "head wellness", "massage therapy", "scalp health", "stress relief"]
+  opengraph = true
+  schema = true
+  twitter_cards = true
+  readmore = true
+  authorbox = false
+  pager = true
+  post_meta = ["date", "categories", "tags"]
+  mainSections = ["posts"]
+  dateformat = "2006-01-02"
+  highlightColor = "#e22d30"
+
+[Params.logo]
+  image = false
+  subtitle = "Relieve Headaches, Promote Hair Growth"
+
+[Params.thumbnail]
+  visibility = ["list", "post"]
+
+[Params.sidebar]
+  home = "right"
+  list = "right"
+  single = "right"
+  widgets = ["search", "recent", "categories", "taglist", "social"]
+
+[Params.widgets]
+  recent_num = 5
+  tags_counter = true
+  categories_counter = true
+
+[Params.widgets.social]
+  github = "head-relief-guide"
+  email = "contact@headreliefguide.com"
+
+[Params.footer]
+  copyright = "Head Relief & Hair Growth Guide"
+  since = 2026
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+  [markup.highlight]
+    codeFences = true
+    guessSyntax = true
+    lineNos = true
+    style = "monokai"
+  [markup.tableOfContents]
+    endLevel = 4
+    ordered = false
+    startLevel = 2
+
+[related]
+  includeNewer = true
+  threshold = 80
+  toLower = true
+  [[related.indices]]
+    name = "tags"
+    weight = 100
+  [[related.indices]]
+    name = "categories"
+    weight = 80
+  [[related.indices]]
+    name = "date"
+    weight = 10

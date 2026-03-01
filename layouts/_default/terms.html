@@ -1,0 +1,62 @@
+{{ define "main" }}
+{{- $isTagPage := eq .Data.Plural "tags" -}}
+{{- $taxonomyName := cond $isTagPage "tags" "categories" -}}
+{{- $title := cond $isTagPage "Tags" "Categories" -}}
+
+<div class="taxonomy-page">
+	<h1 class="taxonomy-title">{{ $title }}</h1>
+	{{ .Content }}
+
+	<div class="taxonomy-grid">
+		{{ range (index .Site.Taxonomies $taxonomyName) }}
+		<a href="{{ .Page.RelPermalink }}" class="taxonomy-card">
+			<div class="taxonomy-name">{{ .Page.Title }}</div>
+			<div class="taxonomy-count">{{ .Count }} Posts</div>
+		</a>
+		{{ end }}
+	</div>
+</div>
+
+<style>
+.taxonomy-page {
+	padding: 20px 0;
+}
+.taxonomy-title {
+	margin-bottom: 30px;
+	padding-bottom: 15px;
+	border-bottom: 2px solid #e22d30;
+}
+.taxonomy-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+	gap: 20px;
+}
+.taxonomy-card {
+	display: block;
+	padding: 25px;
+	background: linear-gradient(135deg, #f8f8f8 0%, #fff 100%);
+	border-radius: 8px;
+	text-decoration: none;
+	border: 1px solid #eee;
+	transition: all 0.3s ease;
+}
+.taxonomy-card:hover {
+	transform: translateY(-5px);
+	box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+	border-color: #e22d30;
+}
+.taxonomy-name {
+	font-size: 1.2em;
+	font-weight: 600;
+	color: #333;
+	margin-bottom: 8px;
+}
+.taxonomy-card:hover .taxonomy-name {
+	color: #e22d30;
+}
+.taxonomy-count {
+	font-size: 0.9em;
+	color: #888;
+}
+</style>
+{{ end }}

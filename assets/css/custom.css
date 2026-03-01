@@ -1,0 +1,163 @@
+/* Custom styles to fix sidebar layout */
+
+/* Ensure flex layout works on all screen sizes */
+@media screen and (max-width: 767px) {
+	.wrapper {
+		display: -webkit-flex;
+		display: flex;
+		-webkit-flex-direction: column;
+		flex-direction: column;
+	}
+
+	.primary {
+		-webkit-order: 1;
+		order: 1;
+		width: 100%;
+	}
+
+	.sidebar {
+		-webkit-order: 2;
+		order: 2;
+		width: 100%;
+		margin: 20px 0 0 0;
+		-webkit-flex: none;
+		flex: none;
+	}
+}
+
+/* For larger screens, ensure proper flex layout */
+@media screen and (min-width: 768px) {
+	.wrapper {
+		display: -webkit-flex;
+		display: flex;
+		-webkit-flex-direction: row;
+		flex-direction: row;
+	}
+
+	.primary {
+		-webkit-flex: 1 0 65.83%;
+		flex: 1 0 65.83%;
+		-webkit-order: 1;
+		order: 1;
+		min-width: 0;
+	}
+
+	.sidebar {
+		-webkit-flex: 1 0 31.66%;
+		flex: 1 0 31.66%;
+		-webkit-order: 2;
+		order: 2;
+		min-width: 0;
+		margin: 0 0 0 2.5%;
+	}
+
+	.sidebar--left {
+		-webkit-order: 0;
+		order: 0;
+		margin: 0 2.5% 0 0;
+	}
+}
+
+/* Additional responsive improvements */
+@media screen and (max-width: 480px) {
+	.wrapper {
+		padding: 15px;
+	}
+}
+
+/* Article title highlight styles */
+.list__title a {
+	color: #333;
+	transition: all 0.3s ease;
+	position: relative;
+}
+
+.list__title a:hover {
+	color: #e22d30;
+	text-decoration: none;
+}
+
+.list__title a::after {
+	content: '';
+	position: absolute;
+	bottom: -2px;
+	left: 0;
+	width: 0;
+	height: 2px;
+	background: #e22d30;
+	transition: width 0.3s ease;
+}
+
+.list__title a:hover::after {
+	width: 100%;
+}
+
+/* Add visual indicator for clickable titles */
+.list__item {
+	transition: all 0.3s ease;
+	border-left: 3px solid transparent;
+	padding-left: 15px;
+}
+
+.list__item:hover {
+	border-left-color: #e22d30;
+	background: linear-gradient(90deg, rgba(226, 45, 48, 0.03) 0%, transparent 100%);
+}
+
+.list__title {
+	font-weight: 600;
+}
+
+/* Make the entire article card more clickable-looking */
+.list__item .list__header {
+	cursor: pointer;
+}
+
+/* Enhance the "Read More" button */
+.list__footer-readmore {
+	background: #e22d30;
+	color: #fff;
+	padding: 8px 20px;
+	border-radius: 4px;
+	transition: all 0.3s ease;
+	font-weight: 500;
+}
+
+.list__footer-readmore:hover {
+	background: #c42528;
+	transform: translateY(-2px);
+	box-shadow: 0 4px 12px rgba(226, 45, 48, 0.3);
+}
+
+/* Fix thumbnail image display */
+.list__thumbnail {
+	display: block;
+	float: left;
+	margin: 0 20px 10px 0;
+	max-width: 235px;
+}
+
+.list__thumbnail .thumbnail__link {
+	display: block;
+}
+
+.list__thumbnail .thumbnail__image {
+	display: block;
+	width: 100%;
+	height: auto;
+	max-width: 235px;
+	border-radius: 4px;
+}
+
+/* Ensure thumbnail is visible on mobile */
+@media screen and (max-width: 767px) {
+	.list__thumbnail {
+		float: none;
+		margin: 0 0 15px 0;
+		max-width: 100%;
+	}
+	
+	.list__thumbnail .thumbnail__image {
+		max-width: 100%;
+	}
+}

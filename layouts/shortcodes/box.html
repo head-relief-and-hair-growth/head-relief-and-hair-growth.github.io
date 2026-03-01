@@ -1,0 +1,11 @@
+{{ $title := .Get 0 }}
+<div class="content-box" style="background: #f8f9fa; border-left: 4px solid #007bff; padding: 1rem 1.5rem; margin: 1.5rem 0; border-radius: 0 8px 8px 0;">
+  {{ if $title }}
+  <div class="box-title" style="font-weight: 600; font-size: 1.1rem; margin-bottom: 0.75rem; color: #007bff;">
+    {{ $title | markdownify }}
+  </div>
+  {{ end }}
+  <div class="box-content">
+    {{ .Inner | markdownify }}
+  </div>
+</div>

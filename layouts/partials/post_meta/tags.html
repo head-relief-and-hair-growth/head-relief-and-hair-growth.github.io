@@ -1,0 +1,8 @@
+{{- if .Params.tags }}
+<span class="post-meta-item post-meta-tags">
+	{{ partial "svg/tag.svg" (dict "class" "post-meta-icon") }}
+	{{ range $i, $tag := .Params.tags }}
+	{{ if $i }}, {{ end }}<a href="{{ "tags/" | relURL }}{{ . | urlize }}/" class="post-meta-tag">{{ . }}</a>
+	{{ end }}
+</span>
+{{- end }}

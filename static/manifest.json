@@ -1,0 +1,23 @@
+[
+  {
+    "name": "Head Massager",
+    "short_name": "Head Massager",
+    "description": "Professional head massager review blog",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#e22d30",
+    "icons": [
+      {
+        "src": "/img/avatar.png",
+        "sizes": "192x192",
+        "type": "image/png"
+      },
+      {
+        "src": "/img/avatar.png",
+        "sizes": "512x512",
+        "type": "image/png"
+      }
+    ]
+  }
+]

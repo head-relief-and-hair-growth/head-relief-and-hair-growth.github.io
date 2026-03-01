@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <rect width="400" height="300" fill="#f8f9fa" />
+  <circle cx="200" cy="150" r="100" fill="#e3f2fd" stroke="#2196f3" stroke-width="2" />
+  <text x="200" y="140" font-family="Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="middle" fill="#333">The Science Behind Massage</text>
+  <text x="200" y="170" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#666">Headache Relief & Hair Growth</text>
+  <path d="M150 200 L250 200" stroke="#4caf50" stroke-width="3" />
+  <path d="M200 180 L200 220" stroke="#4caf50" stroke-width="3" />
+</svg>
