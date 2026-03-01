@@ -14,6 +14,8 @@ thumbnail: "images/breo-scalp3-review.svg"
 
 In today's fast-paced world, finding moments of genuine relaxation has become increasingly challenging. As someone who spends countless hours in front of screens, I've experienced firsthand the toll that modern work life takes on our bodies—particularly our heads, eyes, and scalps. That's why I was excited to test two of Breo's most innovative products: the **iDream5S Head Massager** and the **Scalp3 Trilogy Massager**.
 
+![Woman Using Breo Massager with Multiple Modes](/images/woman_use_breo_2_massage_modes.jpg "Experience versatile massage modes with Breo devices")
+
 <!--more-->
 
 After several weeks of daily use, I'm ready to share my comprehensive review of these devices that promise to bring professional-grade massage therapy into your home.
@@ -83,6 +85,8 @@ The **2300mAh battery** delivers:
 - **7 days of daily 15-minute use** on a single charge
 
 The **wireless design** means you can use it anywhere—on the couch, in bed, at your desk, or even on a plane.
+
+![Man Wearing Breo iDream5S Head Massager](/images/man_wear_breo_idream5s_head_massager_2.jpg "Comfortable and portable design for use anywhere")
 
 ## Breo Scalp3 Trilogy: Advanced Scalp Care
 

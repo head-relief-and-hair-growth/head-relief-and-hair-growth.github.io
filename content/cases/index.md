@@ -23,6 +23,8 @@ Discover how Breo massagers have transformed lives. These authentic stories show
 
 ## 🎯 Headache Relief Success Stories
 
+![Massage for Headache Before and After](/images/massage_for_headache_before_and_after.webp "Real results: Headache relief through consistent massage therapy")
+
 {{< box "💼 Professional Relief" >}}
 ### Sarah M. — Marketing Executive
 
@@ -81,6 +83,8 @@ Discover how Breo massagers have transformed lives. These authentic stories show
 ---
 
 ## 💇 Hair Growth Success Stories
+
+![Hair Growth Effect Before and After](/images/hair_growth_effect_before_and_after.jpg "Real results: Visible hair growth improvement from regular scalp massage")
 
 {{< box "💻 Tech Professional" >}}
 ### Michael T. — Software Engineer
