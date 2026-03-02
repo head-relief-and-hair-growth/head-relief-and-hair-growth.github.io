@@ -114,16 +114,18 @@
 }
 
 /* Enhance the "Read More" button */
-.list__footer-readmore {
+.list__footer-readmore.btn {
 	background: #e22d30;
 	color: #fff;
 	padding: 8px 20px;
 	border-radius: 4px;
 	transition: all 0.3s ease;
 	font-weight: 500;
+	float: right;
+	margin-top: 10px;
 }
 
-.list__footer-readmore:hover {
+.list__footer-readmore.btn:hover {
 	background: #c42528;
 	transform: translateY(-2px);
 	box-shadow: 0 4px 12px rgba(226, 45, 48, 0.3);
