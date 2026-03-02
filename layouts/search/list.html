@@ -3,12 +3,12 @@
 	<h1 class="search-title">{{ .Title }}</h1>
 	{{ .Content }}
 	
-	<div class="search-container">
-		<input type="text" id="search-input" class="search-input" placeholder="Enter keywords to search...">
-		<button id="search-button" class="search-button">Search</button>
+	<div class="search-box-container">
+		<input type="text" id="search-box-input" class="search-box-input" placeholder="Enter keywords to search...">
+		<button id="search-box-button" class="search-box-button">Search</button>
 	</div>
 	
-	<div id="search-results" class="search-results"></div>
+	<div id="search-box-results" class="search-box-results"></div>
 </div>
 
 <style>
@@ -20,12 +20,12 @@
 	padding-bottom: 15px;
 	border-bottom: 2px solid #e22d30;
 }
-.search-container {
+.search-box-container {
 	display: flex;
 	gap: 10px;
 	margin-bottom: 30px;
 }
-.search-input {
+#search-box-input {
 	flex: 1;
 	padding: 12px 15px;
 	font-size: 16px;
@@ -33,11 +33,14 @@
 	border-radius: 4px;
 	outline: none;
 	transition: border-color 0.3s;
+	width: 100%;
+	background: #fff;
 }
-.search-input:focus {
+#search-box-input:focus {
 	border-color: #e22d30;
+	background: #fff;
 }
-.search-button {
+#search-box-button {
 	padding: 12px 25px;
 	background: #e22d30;
 	color: #fff;
@@ -46,11 +49,12 @@
 	cursor: pointer;
 	font-size: 16px;
 	transition: background 0.3s;
+	width: auto;
 }
-.search-button:hover {
+#search-box-button:hover {
 	background: #c42528;
 }
-.search-results {
+.search-box-results {
 	margin-top: 20px;
 }
 .search-result-item {
@@ -90,20 +94,28 @@
 	color: #888;
 }
 @media (max-width: 768px) {
-	.search-container {
+	.search-box-container {
 		flex-direction: column;
 	}
-	.search-button {
+	#search-box-button {
 		width: 100%;
 	}
 }
 </style>
 
 <script>
-const searchIndex = {{ .Site.RegularPages | jsonify }};
+let searchIndex = [];
 
-function search(query) {
-	if (!query.trim()) {
+// Load search index
+fetch('/index.json')
+	.then(response => response.json())
+	.then(data => {
+		searchIndex = data;
+	})
+	.catch(error => console.error('Error loading search index:', error));
+
+function performSearch(query) {
+	if (!query.trim() || searchIndex.length === 0) {
 		return [];
 	}
 	
@@ -127,7 +139,7 @@ function search(query) {
 				url: page.url,
 				date: page.date,
 				description: page.description || '',
-				content: page.content.substring(0, 200) + '...'
+				content: page.content ? page.content.substring(0, 200) + '...' : ''
 			});
 		}
 	});
@@ -135,24 +147,24 @@ function search(query) {
 	return results;
 }
 
-function displayResults(results, query) {
-	const container = document.getElementById('search-results');
+function displaySearchResults(results, query) {
+	const container = document.getElementById('search-box-results');
 	
 	if (results.length === 0) {
-		container.innerHTML = '<div class="no-results">未找到与 "' + query + '" 相关的内容</div>';
+		container.innerHTML = '<div class="no-results">No results found for "' + escapeHtml(query) + '"</div>';
 		return;
 	}
 	
 	let html = '';
 	results.forEach(result => {
-		const date = new Date(result.date).toLocaleDateString('zh-CN');
+		const date = new Date(result.date).toLocaleDateString('en-US');
 		html += `
 			<div class="search-result-item">
 				<h3 class="search-result-title">
-					<a href="${result.url}">${highlightText(result.title, query)}</a>
+					<a href="${escapeHtml(result.url)}">${highlightText(escapeHtml(result.title), escapeHtml(query))}</a>
 				</h3>
-				<div class="search-result-meta">发布于 ${date}</div>
-				<div class="search-result-summary">${highlightText(result.description || result.content, query)}</div>
+				<div class="search-result-meta">Published on ${date}</div>
+				<div class="search-result-summary">${highlightText(escapeHtml(result.description || result.content), escapeHtml(query))}</div>
 			</div>
 		`;
 	});
@@ -161,21 +173,32 @@ function displayResults(results, query) {
 }
 
 function highlightText(text, query) {
-	const regex = new RegExp(`(${query})`, 'gi');
+	if (!text) return '';
+	const regex = new RegExp('(' + escapeRegex(query) + ')', 'gi');
 	return text.replace(regex, '<span class="search-highlight">$1</span>');
 }
 
-document.getElementById('search-button').addEventListener('click', function() {
-	const query = document.getElementById('search-input').value;
-	const results = search(query);
-	displayResults(results, query);
+function escapeHtml(text) {
+	const div = document.createElement('div');
+	div.textContent = text;
+	return div.innerHTML;
+}
+
+function escapeRegex(string) {
+	return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+document.getElementById('search-box-button').addEventListener('click', function() {
+	const query = document.getElementById('search-box-input').value;
+	const results = performSearch(query);
+	displaySearchResults(results, query);
 });
 
-document.getElementById('search-input').addEventListener('keypress', function(e) {
+document.getElementById('search-box-input').addEventListener('keypress', function(e) {
 	if (e.key === 'Enter') {
 		const query = this.value;
-		const results = search(query);
-		displayResults(results, query);
+		const results = performSearch(query);
+		displaySearchResults(results, query);
 	}
 });
 </script>
