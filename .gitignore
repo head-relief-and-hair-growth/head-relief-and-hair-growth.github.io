@@ -5,6 +5,9 @@
 hugo_stats.json
 .hugo_build.lock
 
+# Theme example sites
+themes/*/exampleSite/
+
 # IDE
 .idea/
 .vscode/
